@@ -36,6 +36,8 @@ jobs:
             compiler: 'clang++'
           - os: windows
             boost: '1_66'
+          - os: windows
+            geos: 'none'
         include:
 #           - os: ubuntu
 #             boost: 1_66
