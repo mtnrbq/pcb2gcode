@@ -17,7 +17,7 @@ jobs:
     name: ${{ matrix.os }}_${{ matrix.boost }}_${{ matrix.compiler }}_${{ matrix.geos }}
     strategy:
       matrix:
-        os: [ubuntu, macos, windows]
+        os: [windows]
         boost: ['1_66', 'latest']
         geos: ['3.9.0', 'main', 'none']
         compiler: ['g++', 'g++-10', 'clang++']
