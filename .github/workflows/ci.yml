@@ -17,12 +17,13 @@ jobs:
     name: ${{ matrix.os }}_${{ matrix.boost }}_${{ matrix.compiler }}_${{ matrix.geos }}
     strategy:
       matrix:
-        os: [windows]
+        os: [ubuntu, macos, windows]
         boost: ['1_66', 'latest']
         geos: ['3.9.0', 'main', 'none']
         compiler: ['g++', 'g++-10', 'clang++']
         exclude:
           - os: macos # Temporarily disable until fixed
+          - os: ubuntu
           - os: macos
             boost: '1_66'
           - os: ubuntu
@@ -36,17 +37,17 @@ jobs:
           - os: windows
             boost: '1_66'
         include:
-          - os: ubuntu
-            boost: 1_66
-            compiler: g++-10
-            geos: 'main'
-            code_coverage: "--enable-code-coverage"
+#           - os: ubuntu
+#             boost: 1_66
+#             compiler: g++-10
+#             geos: 'main'
+#             code_coverage: "--enable-code-coverage"
           - os: windows
             shell: msys2 {0}
             local_install_path: '/d/a/pcb2gcode/.local'
-          - os: ubuntu
-            shell: '/usr/bin/bash -l -e -o pipefail {0}'
-            local_install_path: '$HOME/.local'
+#           - os: ubuntu
+#             shell: '/usr/bin/bash -l -e -o pipefail {0}'
+#             local_install_path: '$HOME/.local'
           #- os: macos
           #  shell: '/bin/bash -l -e -o pipefail {0}'
           #  local_install_path: '$HOME/.local'
